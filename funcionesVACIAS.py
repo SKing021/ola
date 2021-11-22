@@ -5,69 +5,39 @@ import random
 import math
 
 
-def cargarListas(lista, listaIzq, listaMedio, listaDer, posicionesIzq , posicionesMedio, posicionesDer):           ##funciona por el momento
+def cargarListas(lista, listaIzq, listaMedio, listaDer, posicionesIzq , posicionesMedio, posicionesDer):           ##funciona por el momentodef cargarListas(lista, listaIzq, listaMedio, listaDer, posicionesIzq , posicionesMedio, posicionesDer):           ##funciona por el momento
     #elige una palabra de la lista y la carga en las 3 listas
     # y les inventa una posicion para que aparezca en la columna correspondiente
 
-    ANCHO=600
-    ALTO=800
+    ANCHO = 800
+    ALTO = 600
     palabra_random= random.choice(lista)
 
-##    coordenadas = coordenadas
-##
-    global coordenadas
-    global pos_x
-    global pos_y
 
     for palabra in lista:
         if palabra == palabra_random:
          for letra in palabra:
 
-            pos_x= random.randrange(0,ANCHO)
+            coordenadas = [random.randrange(0,ANCHO-10),random.randrange(0,ALTO-70)]
 
-            pos_y = random.randrange(0,ALTO-70)
-
-            coordenadas = [pos_x,pos_y]
-            
-
-            if pos_x <= (ANCHO-400):
+            if coordenadas[0] <= ANCHO-550 and coordenadas[1] <= ALTO-100:
 
                 listaIzq.append (letra)
                 posicionesIzq.append (coordenadas)
-                return coordenadas
+
 
             else:
-                if pos_x <= (ANCHO-200):
+                if coordenadas[0] <= ANCHO-265 and coordenadas[1] <= ALTO-100:
 
                     listaMedio.append (letra)
                     posicionesMedio.append (coordenadas)
-                    return coordenadas
+
 
                 else:
-                    if pos_x <= (ANCHO):
+                    if coordenadas[0] <= ANCHO-1 and coordenadas[1] <= ALTO-100:
 
                         listaDer.append (letra)
                         posicionesDer.append (coordenadas)
-                        return coordenadas
-
-
-
-         return posicionesIzq, posicionesMedio, posicionesDer
-
-
-
-
-#pp
-
-##lista=["Argentina", "Uruguay", "Brasil"]
-##listaIzq=[]
-##listaMedio=[]
-##listaDer=[]
-##posicionesIzq=[]
-##posicionesMedio=[]
-##posicionesDer=[]
-##
-##print (cargarListas(lista, listaIzq, listaMedio, listaDer, posicionesIzq , posicionesMedio, posicionesDer))
 
 
 
@@ -183,7 +153,6 @@ def Puntos(candidata):
     #devuelve el puntaje que le corresponde a candidata
 
     vocales= "aeiouAEIOU"
-    
     consonantes="bcdfghlmnñprstvBCDFGJHLMNÑPRSTV"
     con_dificiles="jkqwxyzJKQWXYZ"
 
